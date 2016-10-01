@@ -8,9 +8,18 @@ cheerio = require 'cheerio'
 module.exports = (robot) ->
 
   robot.hear /scrape (.*)/i, (msg) ->
-    url = msg.match[1]
-    request "#{url}", (error, response, body)->
-      throw error if error
+
+    # set some defaults
+    req = request.defaults(
+      jar: true
+      rejectUnauthorized: false
+      followAllRedirects: true)
+
+    req.get {
+      url: msg.match[1]
+      headers: 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
+    }, (err, resp, body) ->
+      # load the html into cheerio
       $ = cheerio.load(body)
       links = $('a').toArray()
       things = []
