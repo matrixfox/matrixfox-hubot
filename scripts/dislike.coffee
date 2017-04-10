@@ -14,4 +14,4 @@
 
 module.exports = (robot) ->
   robot.hear /dislike/i, (msg) ->
-    msg.send "https://pbs.twimg.com/media/BFV2RuQCUAArpAs.jpg"
+    msg.send "https://i.giphy.com/gSotjAQJmPTJm.gif"
