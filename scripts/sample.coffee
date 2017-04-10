@@ -20,4 +20,4 @@ module.exports = (robot) ->
 
     id = msg.match[1]
 
-msg.send "http://i.qkme.me/" + id + ".jpg"
+    msg.send "http://i.qkme.me/" + id + ".jpg"
