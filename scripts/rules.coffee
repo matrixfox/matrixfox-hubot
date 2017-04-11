@@ -26,4 +26,4 @@ module.exports = (robot) ->
     if text.match(/apple/i) or text.match(/dev/i)
       msg.send otherRules.join('\n')
     else
-      msg.send rules.join('\n')
+      msg.send rules
